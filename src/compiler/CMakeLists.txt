@@ -101,6 +101,7 @@ function(configure_target)
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_BINARY_DIR}/include)
   target_include_directories(${target} SYSTEM PRIVATE ${LLVM_INCLUDE_DIRS})
+  target_include_directories(${target} SYSTEM PRIVATE ${CLANG_INCLUDE_PATH})
 
   separate_arguments(LLVM_DEFINITIONS_LIST NATIVE_COMMAND ${LLVM_DEFINITIONS})
   target_compile_definitions(${target} PRIVATE

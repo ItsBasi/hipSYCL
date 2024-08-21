@@ -26,6 +26,7 @@ function(create_llvm_based_library)
   target_include_directories(${target} PRIVATE
     ${LLVM_TO_BACKEND_INCLUDE_DIRS})
   target_include_directories(${target} SYSTEM PRIVATE ${LLVM_INCLUDE_DIRS})
+  target_include_directories(${target} SYSTEM PRIVATE ${CLANG_INCLUDE_PATH})
 
   separate_arguments(LLVM_DEFINITIONS_LIST NATIVE_COMMAND ${LLVM_DEFINITIONS})
   target_compile_definitions(${target} PRIVATE
@@ -79,6 +80,7 @@ function(create_llvm_to_backend_tool)
   target_include_directories(${target}-tool PRIVATE
     ${LLVM_TO_BACKEND_INCLUDE_DIRS})
   target_include_directories(${target}-tool SYSTEM PRIVATE ${LLVM_INCLUDE_DIRS})
+  target_include_directories(${target}-tool SYSTEM PRIVATE ${CLANG_INCLUDE_PATH})
 
   separate_arguments(LLVM_DEFINITIONS_LIST NATIVE_COMMAND ${LLVM_DEFINITIONS})
   target_compile_definitions(${target}-tool PRIVATE
